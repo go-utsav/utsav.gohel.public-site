@@ -91,6 +91,7 @@ footer {
     width: 220px;
     height: 220px;
     position: relative;
+    overflow: hidden;
 }
 
 .certification-badge:hover {
@@ -99,16 +100,32 @@ footer {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+.certification-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,215,0,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.certification-badge:hover::before {
+    opacity: 1;
+}
+
 .certification-badge img {
     width: 100px;
     height: 100px;
     margin-bottom: 1rem;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .certification-badge:hover img {
-    transform: scale(1.1);
+    transform: scale(1.08) rotate(2deg);
 }
 
 .badge-info {
@@ -228,3 +245,421 @@ footer {
 .image-card-link {
     display: none;
 }
+
+/* Case Study Cards */
+.case-study-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.case-study-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.case-study-image {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.case-study-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.client-location {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.case-study-content {
+    padding: 24px;
+}
+
+.case-study-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tech-stack span {
+    background: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.case-study-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.case-study-points li {
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.case-study-points li:before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: #1a1a1a;
+}
+
+.case-study-points li strong {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.case-study-card .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Trust Section Styles */
+.trust-item {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.trust-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.trust-item i {
+    font-size: 1.75rem;
+    opacity: 0.9;
+}
+
+.trust-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.trust-item p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Certification Cards */
+.cert-card {
+    display: block;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.cert-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.cert-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.cert-card:hover img {
+    transform: scale(1.05);
+}
+
+.cert-info h5 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #1a1a1a;
+}
+
+.cert-info span {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Standard Cards */
+.standard-card {
+    text-align: center;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.standard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.standard-card i {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+    opacity: 0.9;
+}
+
+.standard-card h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.standard-card p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Certification Section */
+.certification-section {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.certification-slider {
+    overflow: hidden;
+}
+
+/* Testimonials Section Styles */
+.testimonials-section {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Stats Bar */
+.stats-bar {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.stats-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.stats-item i {
+    font-size: 1.25rem;
+}
+
+.stats-item span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Client Identity */
+.client-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.client-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+}
+
+.client-position {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.client-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.flag-icon {
+    width: 16px;
+    height: 12px;
+    object-fit: cover;
+}
+
+.client-links .btn {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+}
+
+/* Testimonial Quote */
+.testimonial-quote {
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 1.5rem 0;
+    padding: 0;
+    text-align: center;
+    border: none;
+    position: relative;
+}
+
+.testimonial-quote::before,
+.testimonial-quote::after {
+    content: '"';
+    color: #ddd;
+    font-size: 2rem;
+    line-height: 0;
+}
+
+/* Tech Focus */
+.tech-focus {
+    margin-top: auto;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tags span {
+    font-size: 0.85rem;
+    color: #666;
+    background: #f8f9fa;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid #dee2e6;
+}
+
+/* Testimonial Links */
+.testimonial-links {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.testimonial-links a {
+    color: #1a1a1a;
+}
+
+.testimonial-links a:hover {
+    color: #0055b3;
+}
+
+/* Google Reviews Link */
+.google-reviews-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #666;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.google-reviews-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    color: #1a1a1a;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .stats-bar {
+        padding: 1rem;
+    }
+    
+    .stats-item {
+        flex: 0 0 50%;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .testimonial-card {
+        padding: 1.25rem;
+    }
+    
+    .client-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .testimonial-quote {
+        font-size: 1rem;
+    }
+    
+    .tech-tags {
+        justify-content: center;
+    }
+    
+    .testimonial-links {
+        text-align: center;
+    }
+}
+    
