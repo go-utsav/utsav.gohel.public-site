@@ -1,0 +1,230 @@
+body {
+    font-family: 'Sora', sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+
+}
+
+body a {
+    text-decoration: none;
+}
+.nav-link {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+.nav-link:hover {
+    color: #0055b3;
+}
+.hero-section {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+.section-heading {
+    color: #1a1a1a;
+    border-bottom: 4px solid #1a1a1a;
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+}
+.card {
+    border: 1px solid #dee2e6;
+    transition: transform 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-3px);
+}
+.btn-primary {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+.btn-primary:hover {
+    background-color: #333;
+    border-color: #333;
+}
+.btn-outline-primary {
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+.btn-outline-primary:hover {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.certification-marquee {
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 30s linear infinite;
+    gap: 1.5rem;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.certification-badge {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    width: 220px;
+    height: 220px;
+    position: relative;
+}
+
+.certification-badge:hover {
+    background: #ffd700;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.certification-badge img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.certification-badge:hover img {
+    transform: scale(1.1);
+}
+
+.badge-info {
+    width: 100%;
+}
+
+.badge-info h4 {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #333;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.badge-info p {
+    font-size: 0.75rem;
+    margin: 5px 0 0;
+    color: #666;
+}
+
+.certification-intro {
+    position: sticky;
+    top: 20px;
+}
+
+/* Image Cards Styles */
+.image-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: auto;
+    cursor: pointer;
+}
+
+.image-card:hover {
+    background: #ffd700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+
+.image-card-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-card-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #666;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.image-card:hover .image-card-tag {
+    background: white;
+    color: #333;
+}
+
+.image-card-content {
+    padding: 20px;
+}
+
+.image-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.image-card:hover .image-card-title {
+    text-decoration: underline;
+}
+
+.image-card-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-card:hover .image-card-description {
+    color: #333;
+}
+
+/* Make the entire card clickable */
+.image-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove old link styles */
+.image-card-link {
+    display: none;
+}
