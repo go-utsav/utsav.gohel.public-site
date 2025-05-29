@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>  
 
 <!-- Portfolio Case Studies -->
 <section id="portfolio" class="py-5">
@@ -85,9 +85,9 @@
                             </li>
                         </ul>
                         <a href="/case-studies/fintech-cloud" class="btn btn-outline-primary">View Full Case Study →</a>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                            </div>
+                                </div>
 
             <!-- AI Dashboard Case Study -->
             <div class="col-md-6">
@@ -96,7 +96,7 @@
                         <span class="client-location"><i class="fas fa-globe-americas"></i> US</span>
                         <img src="https://www.shutterstock.com/image-vector/dashboard-infographic-template-charts-graphs-260nw-1065822260.jpg"
                             alt="AI Analytics Dashboard" class="img-fluid">
-                    </div>
+                            </div>
                     <div class="case-study-content">
                         <h3>AI-Powered Analytics Platform</h3>
                         <div class="tech-stack">
@@ -108,11 +108,11 @@
                         <ul class="case-study-points">
                             <li><strong>Challenge:</strong> Manual data analysis causing delayed business decisions</li>
                             <li><strong>Solution:</strong> Built real-time analytics dashboard with predictive insights
-                            </li>
+                                </li>
                             <li><strong>Role:</strong> Technical Lead & ML Engineer</li>
                             <li><strong>Impact:</strong> 80% faster reporting, 45% improvement in prediction accuracy
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
                         <a href="/case-studies/ai-analytics" class="btn btn-outline-primary">View Full Case Study →</a>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
 
 <!-- Trust & Certification Section -->
 <section class="py-4">
-    <div class="container">
+<div class="container">
         <!-- Row 1: Heading -->
         <div class="text-center mb-4">
             <h2 class="h2 fw-bold">Industry Standards & Best Practices</h2>
@@ -187,9 +187,9 @@
                         <h4 class="h5 mb-1">Performance Architect</h4>
                         <p class="mb-0">90+ PageSpeed & sub-second responses</p>
                     </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
         <!-- Row 3: Certifications Slider -->
         <div class="certification-section mb-5">
@@ -200,18 +200,18 @@
                 <div class="col-auto">
                     <span class="badge bg-primary rounded-pill">7+ Active</span>
                 </div>
-            </div>
-            
+                                </div>
+
             <!-- Certification Slider -->
             <div class="position-relative">
                 <div class="certification-slider">
                     <div class="row g-3">
-                        <!-- AWS Solutions Architect -->
+                            <!-- AWS Solutions Architect -->
                         <div class="col-md-3">
                             <a href="https://www.credly.com/org/amazon-web-services/badge/aws-certified-solutions-architect-associate" 
                                class="cert-card" target="_blank">
                                 <img src="https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
-                                     alt="AWS Solutions Architect">
+                                    alt="AWS Solutions Architect">
                                 <div class="cert-info">
                                     <h5>Solutions Architect</h5>
                                     <span>AWS Associate</span>
@@ -270,7 +270,7 @@
                     <a href="/certifications" class="btn btn-link text-dark">View All Certifications →</a>
                 </div>
             </div>
-        </div>
+</div>
 
         <!-- Row 4: Standards Cards -->
         <div class="row g-3">
@@ -279,8 +279,8 @@
                     <i class="fas fa-lock fa-lg text-primary"></i>
                     <h5>OWASP Top 10</h5>
                     <p>Security standards</p>
-                </div>
-            </div>
+                        </div>
+                    </div>
             <div class="col-md-3">
                 <div class="standard-card">
                     <i class="fas fa-cloud fa-lg text-primary"></i>
@@ -293,79 +293,42 @@
                     <i class="fas fa-code fa-lg text-primary"></i>
                     <h5>Clean Code</h5>
                     <p>SOLID & DRY</p>
-                </div>
+                    </div>
             </div>
             <div class="col-md-3">
                 <div class="standard-card">
                     <i class="fas fa-tasks fa-lg text-primary"></i>
                     <h5>DevOps</h5>
                     <p>CI/CD pipeline</p>
-                </div>
+                    </div>
             </div>
         </div>
-    </div>
+                        </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="py-5 bg-light">
+<!-- About section -->
+<section id="about" class="">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="mb-4">About Me</h2>
-                <p class="lead mb-4">A passionate Full Stack Developer and Cloud Architect with a drive for creating
-                    innovative solutions that make a difference.</p>
-                <p class="mb-4">With over 5 years of experience in the tech industry, I've developed a deep
-                    understanding of both frontend and backend technologies, along with cloud architecture. I believe in
-                    writing clean, maintainable code and creating user-centric applications that solve real-world
-                    problems.</p>
-                <p class="mb-4">When I'm not coding, you'll find me exploring new technologies, contributing to
-                    open-source projects, or sharing my knowledge through technical writing and mentoring.</p>
+        <div class="about-wrapper p-4" >
+            <!-- Row 1: Header + CTA -->
+            <div class="row align-items-center mb-4 ">
+                <div class="col">
+                    <h2 class="h2 fw-bold mb-0">About Me</h2>
+                        </div>
+                <div class="col-auto">
+                    <a href="{{ route('about') }}" class="btn btn-primary" style="background-color: white; color: black; border-radius: 16px; padding: 10px 20px;">
+                        📖 Read My Full Story
+                        <i class="fas fa-arrow-right ms-2"></i>
+                </a>
             </div>
-            <div class="col-lg-6">
-                <div class="card border-0 bg-white">
-                    <div class="card-body p-4">
-                        <h3 class="h4 mb-4">Education & Certifications</h3>
+            </div>
 
-                        <!-- Education -->
-                        <div class="mb-4">
-                            <h4 class="h5 mb-3">Education</h4>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h5 class="h6 mb-1">Master of Science in Computer Science</h5>
-                                    <span class="badge bg-light text-dark">2020-2022</span>
-                                </div>
-                                <p class="mb-0 text-muted">University Name</p>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h5 class="h6 mb-1">Bachelor of Engineering in Information Technology</h5>
-                                    <span class="badge bg-light text-dark">2016-2020</span>
-                                </div>
-                                <p class="mb-0 text-muted">University Name</p>
-                            </div>
-                        </div>
-
-                        <!-- Certifications -->
-                        <div>
-                            <h4 class="h5 mb-3">Key Certifications</h4>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <i class="fas fa-certificate text-dark me-2"></i>
-                                    AWS Certified Solutions Architect
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-certificate text-dark me-2"></i>
-                                    Microsoft Azure Developer Associate
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-certificate text-dark me-2"></i>
-                                    Google Cloud Professional Developer
-                                </li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary btn-sm mt-2">View All Credentials →</a>
-                        </div>
+            <!-- Row 2: Content -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="lead mb-3">Cloud architect by day, bug hunter by night. I turn coffee ☕ into code and complex problems into elegant solutions. Think of me as your tech-savvy friend who's always up for a good coding adventure!</p>
+                    <p class=" " style="color: white;">From debugging sessions that feel like detective work to architecting systems that make businesses smile - I bring both technical expertise and a dash of joy to every project. Want to know what makes a cloud architect tick? Click that story button up there! 🚀</p>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -374,48 +337,108 @@
 <!-- Skills Section -->
 <section id="skills" class="py-5">
     <div class="container">
-        <h2 class="section-heading">Technical Skills</h2>
+        <div class="row mb-4">
+            <div class="col-lg-6">
+                <h2 class="section-heading">Technical Expertise</h2>
+            </div>
+            <div class="col-lg-6">
+                <p class="lead text-muted">From cloud architecture to AI solutions, here's my tech arsenal</p>
+            </div>
+        </div>
+
         <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Frontend Development</h3>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">• React.js & Next.js</li>
-                            <li class="mb-2">• TypeScript</li>
-                            <li class="mb-2">• Responsive Design</li>
-                            <li class="mb-2">• UI/UX Principles</li>
-                        </ul>
+            <!-- Frontend Development -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card h-100">
+                    <div class="skill-header mb-3">
+                        <span class="skill-icon">🖥️</span>
+                        <h3 class="h5">Frontend</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">jQuery</span>
+                        <span class="skill-tag">SASS</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Backend Development</h3>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">• Node.js & Express</li>
-                            <li class="mb-2">• MongoDB & PostgreSQL</li>
-                            <li class="mb-2">• RESTful APIs</li>
-                            <li class="mb-2">• Authentication & Security</li>
-                        </ul>
+
+            <!-- Backend Development -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card h-100">
+                    <div class="skill-header mb-3">
+                        <span class="skill-icon">⚡</span>
+                        <h3 class="h5">Backend</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">GraphQL</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Cloud & DevOps</h3>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">• AWS Services</li>
-                            <li class="mb-2">• Docker & Kubernetes</li>
-                            <li class="mb-2">• CI/CD Pipelines</li>
-                            <li class="mb-2">• Infrastructure as Code</li>
-                        </ul>
+
+            <!-- Cloud & Infrastructure -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card h-100">
+                    <div class="skill-header mb-3">
+                        <span class="skill-icon">☁️</span>
+                        <h3 class="h5">Cloud</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DevOps & Security -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card h-100">
+                    <div class="skill-header mb-3">
+                        <span class="skill-icon">🔐</span>
+                        <h3 class="h5">DevOps</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Security</span>
+                        <span class="skill-tag">Monitoring</span>
+                        <span class="skill-tag">Testing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generative AI -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card h-100">
+                    <div class="skill-header mb-3">
+                        <span class="skill-icon">🤖</span>
+                        <h3 class="h5">Gen AI</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS Bedrock</span>
+                        <span class="skill-tag">OpenAI</span>
+                        <span class="skill-tag">LLaMA</span>
+                        <span class="skill-tag">RAG</span>
+                        <span class="skill-tag">Token Control</span>
+                        <span class="skill-tag">Prompt Eng.</span>
                     </div>
                 </div>
             </div>
         </div>
+
+       
     </div>
 </section>
 

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\frontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
+Route::get('/', [frontendController::class, 'home'])->name('home');
+Route::get('/about', [frontendController::class, 'about'])->name('about');
+Route::get('/contact', [frontendController::class, 'contact'])->name('contact');
+
+
 
 
 Route::group(['prefix' => 'admin'], function () {
