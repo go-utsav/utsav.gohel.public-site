@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Posts;
 
 use Illuminate\Http\Request;
 
@@ -20,5 +21,13 @@ class frontendController extends Controller
     {
         return view('frontend.pages.contact');
     }
+
+    public function certifiateGrid()
+    {
+        $posts = Posts::all();
+        return view('frontend.pages.certifiate-grid', compact('posts'));
+    }
+
+
 
 }

@@ -267,7 +267,7 @@
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
-                    <a href="/certifications" class="btn btn-link text-dark">View All Certifications →</a>
+                    <a href="{{ route('certifiate-grid') }}" class="btn btn-link text-dark">View All Certifications →</a>
                 </div>
             </div>
 </div>

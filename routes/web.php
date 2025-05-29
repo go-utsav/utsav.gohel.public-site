@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontendController;
+use App\Http\Controllers\SitemapController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +17,10 @@ use App\Http\Controllers\frontendController;
 Route::get('/', [frontendController::class, 'home'])->name('home');
 Route::get('/about', [frontendController::class, 'about'])->name('about');
 Route::get('/contact', [frontendController::class, 'contact'])->name('contact');
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
-
-
+// Certifiate 
+Route::get('/certifiates', [frontendController::class, 'certifiateGrid'])->name('certifiate-grid');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
