@@ -21,6 +21,7 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 // Certifiate 
 Route::get('/certifiates', [frontendController::class, 'certifiateGrid'])->name('certifiate-grid');
+Route::get('/certifiate/{slug}', [frontendController::class, 'certifiateDetail'])->name('certifiate-detail');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

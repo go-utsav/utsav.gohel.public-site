@@ -52,7 +52,7 @@
                             
                             <!-- Action Button - Always at Bottom -->
                             <div class="text-center mt-3">
-                                <a href="{{ $post->url ?? '#' }}" 
+                                <a href="{{ route('certifiate-detail', $post->slug) }}" 
                                    class="btn btn-sm" 
                                    style="background-color: black; color: white; border-radius: 20px; padding: 0.5rem 1.5rem;"
                                    target="_blank">
