@@ -74,8 +74,8 @@
 
                             <!-- Action Buttons -->
                             <div class="d-grid gap-2 mb-4">
-                                @if($post->url)
-                                <a href="{{ $post->url }}" 
+                                @if($post->link)
+                                <a href="{{ $post->link }}" 
                                    target="_blank"
                                    rel="noopener noreferrer"
                                    class="btn"

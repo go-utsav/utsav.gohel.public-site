@@ -161,15 +161,32 @@
 <!-- Simple Footer -->
 <footer class="py-4">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p class="mb-0">© 2024 Utsav Gohel. All rights reserved.</p>
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <p class="mb-0">© 2025 Utsav Gohel. All rights reserved.</p>
             </div>
-            <div class="col-md-6 text-md-end">
-                <a href="#" class="text-white text-decoration-none me-3">LinkedIn</a>
-                <a href="#" class="text-white text-decoration-none me-3">GitHub</a>
-                <a href="#" class="text-white text-decoration-none">Twitter</a>
+            <div class="col-md-4 text-md-center my-2 my-md-0">
+                <small class="text-muted">
+                    <i class="fas fa-shield-alt me-1"></i> Client data protected under NDA
+                </small>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="https://www.linkedin.com/in/utsav-gohel-cloud/" class="text-white text-decoration-none me-3">LinkedIn</a>
+                <a href="https://github.com/go-utsav" class="text-white text-decoration-none me-3">GitHub</a>
+                <a href="https://www.youtube.com/@utsav.cloud.4141" class="text-white text-decoration-none">YouTube</a>
             </div>
         </div>
     </div>
 </footer>
+
+<style>
+footer {
+    font-size: 0.875rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+footer small {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+</style>

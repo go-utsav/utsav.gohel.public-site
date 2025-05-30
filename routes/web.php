@@ -23,6 +23,10 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 Route::get('/certifiates', [frontendController::class, 'certifiateGrid'])->name('certifiate-grid');
 Route::get('/certifiate/{slug}', [frontendController::class, 'certifiateDetail'])->name('certifiate-detail');
 
+// Projects
+Route::get('/projects', [frontendController::class, 'projectsGrid'])->name('projects-grid');
+Route::get('/project/{slug}', [frontendController::class, 'projectDetail'])->name('project-detail');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

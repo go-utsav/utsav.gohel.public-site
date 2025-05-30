@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-</div>  
+</div>
 
 <!-- Portfolio Case Studies -->
 <section id="portfolio" class="py-5">
@@ -85,9 +85,9 @@
                             </li>
                         </ul>
                         <a href="/case-studies/fintech-cloud" class="btn btn-outline-primary">View Full Case Study →</a>
-                                </div>
-                            </div>
-                                </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- AI Dashboard Case Study -->
             <div class="col-md-6">
@@ -96,7 +96,7 @@
                         <span class="client-location"><i class="fas fa-globe-americas"></i> US</span>
                         <img src="https://www.shutterstock.com/image-vector/dashboard-infographic-template-charts-graphs-260nw-1065822260.jpg"
                             alt="AI Analytics Dashboard" class="img-fluid">
-                            </div>
+                    </div>
                     <div class="case-study-content">
                         <h3>AI-Powered Analytics Platform</h3>
                         <div class="tech-stack">
@@ -108,11 +108,11 @@
                         <ul class="case-study-points">
                             <li><strong>Challenge:</strong> Manual data analysis causing delayed business decisions</li>
                             <li><strong>Solution:</strong> Built real-time analytics dashboard with predictive insights
-                                </li>
+                            </li>
                             <li><strong>Role:</strong> Technical Lead & ML Engineer</li>
                             <li><strong>Impact:</strong> 80% faster reporting, 45% improvement in prediction accuracy
-                                </li>
-                            </ul>
+                            </li>
+                        </ul>
                         <a href="/case-studies/ai-analytics" class="btn btn-outline-primary">View Full Case Study →</a>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
 
 <!-- Trust & Certification Section -->
 <section class="py-4">
-<div class="container">
+    <div class="container">
         <!-- Row 1: Heading -->
         <div class="text-center mb-4">
             <h2 class="h2 fw-bold">Industry Standards & Best Practices</h2>
@@ -187,9 +187,9 @@
                         <h4 class="h5 mb-1">Performance Architect</h4>
                         <p class="mb-0">90+ PageSpeed & sub-second responses</p>
                     </div>
-                        </div>
-                    </div>
                 </div>
+            </div>
+        </div>
 
         <!-- Row 3: Certifications Slider -->
         <div class="certification-section mb-5">
@@ -198,79 +198,148 @@
                     <h3 class="h4 mb-0">Professional Certifications</h3>
                 </div>
                 <div class="col-auto">
-                    <span class="badge bg-primary rounded-pill">7+ Active</span>
+                    <span class="badge rounded-pill" style="background-color: black;">{{ count($certifiates) }}+
+                        Active</span>
                 </div>
-                                </div>
+            </div>
 
             <!-- Certification Slider -->
             <div class="position-relative">
-                <div class="certification-slider">
-                    <div class="row g-3">
-                            <!-- AWS Solutions Architect -->
+                <div class="certification-slider overflow-hidden">
+                    <div class="row flex-nowrap g-3" id="certSlider" style="transition: transform 0.3s ease;">
+                        @foreach ($certifiates as $certifiate)
                         <div class="col-md-3">
-                            <a href="https://www.credly.com/org/amazon-web-services/badge/aws-certified-solutions-architect-associate" 
-                               class="cert-card" target="_blank">
-                                <img src="https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
-                                    alt="AWS Solutions Architect">
-                                <div class="cert-info">
-                                    <h5>Solutions Architect</h5>
-                                    <span>AWS Associate</span>
+                            <div class="cert-card position-relative d-flex flex-column">
+                                <img src="{{ asset('storage/' . $certifiate->image) }}" alt="{{ $certifiate->title }}"
+                                    class="img-fluid mb-2" style="height: 150px; width: 100%; object-fit: contain;">
+                                <div class="cert-info d-flex flex-column flex-grow-1">
+                                    <div class="mb-auto">
+                                        <h5 class="mb-2" style="font-size: 0.9rem;">{{ $certifiate->title }}</h5>
+                                        @if($certifiate->credential_id)
+                                        <small class="text-muted d-block mb-2">ID:
+                                            {{ $certifiate->credential_id }}</small>
+                                        @endif
+                                    </div>
+                                    <div class="d-flex gap-2 mt-2">
+                                        <a href="{{ route('certifiate-detail', $certifiate->slug) }}" class="btn btn-sm"
+                                            style="background-color: white; color: black; border: 1px solid black; border-radius: 20px; font-size: 0.8rem;">
+                                            Details
+                                        </a>
+                                        @if($certifiate->link)
+                                        <a href="{{ $certifiate->link }}" target="_blank" rel="noopener noreferrer"
+                                            class="btn btn-sm"
+                                            style="background-color: black; color: white; border-radius: 20px; font-size: 0.8rem;">
+                                            Verify
+                                        </a>
+                                        @endif
+                                    </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                        <!-- Azure Expert -->
-                        <div class="col-md-3">
-                            <a href="https://learn.microsoft.com/en-us/certifications/azure-solutions-architect/" 
-                               class="cert-card" target="_blank">
-                                <img src="https://images.credly.com/size/340x340/images/987adb7e-49be-4e24-b67e-55986bd3fe66/azure-solutions-architect-expert-600x600.png"
-                                     alt="Azure Expert">
-                                <div class="cert-info">
-                                    <h5>Solutions Architect</h5>
-                                    <span>Azure Expert</span>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Terraform -->
-                        <div class="col-md-3">
-                            <a href="https://www.credly.com/org/hashicorp/badge/hashicorp-certified-terraform-associate" 
-                               class="cert-card" target="_blank">
-                                <img src="https://images.credly.com/size/340x340/images/99289602-861e-4929-8277-773e63a2fa6f/image.png"
-                                     alt="Terraform">
-                                <div class="cert-info">
-                                    <h5>Terraform Associate</h5>
-                                    <span>HashiCorp</span>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Kubernetes -->
-                        <div class="col-md-3">
-                            <a href="https://www.credly.com/org/the-linux-foundation/badge/ckad-certified-kubernetes-application-developer" 
-                               class="cert-card" target="_blank">
-                                <img src="https://images.credly.com/size/340x340/images/f88d800c-5261-45c6-9515-0458e31c3e16/ckad_from_cncfsite.png"
-                                     alt="CKAD">
-                                <div class="cert-info">
-                                    <h5>CKAD</h5>
-                                    <span>Kubernetes</span>
-                                </div>
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-                
+
                 <!-- Slider Controls -->
                 <div class="d-flex justify-content-between align-items-center mt-3">
                     <div>
-                        <button class="btn btn-sm btn-outline-primary me-2" id="prevCert">
+                        <button class="btn btn-sm me-2" id="prevCert"
+                            style="background-color: white; color: black; border: 1px solid black; border-radius: 20px;">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <button class="btn btn-sm btn-outline-primary" id="nextCert">
+                        <button class="btn btn-sm" id="nextCert"
+                            style="background-color: white; color: black; border: 1px solid black; border-radius: 20px;">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
-                    <a href="{{ route('certifiate-grid') }}" class="btn btn-link text-dark">View All Certifications →</a>
+                    <a href="{{ route('certifiate-grid') }}" class="btn btn-sm"
+                        style="background-color: black; color: white; border-radius: 20px; padding: 0.5rem 1.5rem;">
+                        View All Certifications →
+                    </a>
                 </div>
             </div>
-</div>
+        </div>
+
+        <style>
+        .cert-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+            padding: 1rem;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #certSlider {
+            transform: translateX(0);
+        }
+        </style>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('certSlider');
+            const prevBtn = document.getElementById('prevCert');
+            const nextBtn = document.getElementById('nextCert');
+            let currentPosition = 0;
+            const cardWidth = 25; // 25% as we're showing 4 cards
+            const totalCards = {
+                {
+                    count($certifiates)
+                }
+            };
+            const visibleCards = 4;
+            const maxPosition = Math.max(0, totalCards - visibleCards);
+
+            function updateSliderPosition() {
+                slider.style.transform = `translateX(-${currentPosition * cardWidth}%)`;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPosition > 0) {
+                    currentPosition--;
+                    updateSliderPosition();
+                }
+                updateButtonStates();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentPosition < maxPosition) {
+                    currentPosition++;
+                    updateSliderPosition();
+                }
+                updateButtonStates();
+            });
+
+            function updateButtonStates() {
+                prevBtn.disabled = currentPosition === 0;
+                nextBtn.disabled = currentPosition >= maxPosition;
+
+                // Update button styles based on state
+                [prevBtn, nextBtn].forEach(btn => {
+                    if (btn.disabled) {
+                        btn.style.opacity = '0.5';
+                        btn.style.cursor = 'not-allowed';
+                    } else {
+                        btn.style.opacity = '1';
+                        btn.style.cursor = 'pointer';
+                    }
+                });
+            }
+
+            // Initial button state
+            updateButtonStates();
+        });
+        </script>
 
         <!-- Row 4: Standards Cards -->
         <div class="row g-3">
@@ -279,8 +348,8 @@
                     <i class="fas fa-lock fa-lg text-primary"></i>
                     <h5>OWASP Top 10</h5>
                     <p>Security standards</p>
-                        </div>
-                    </div>
+                </div>
+            </div>
             <div class="col-md-3">
                 <div class="standard-card">
                     <i class="fas fa-cloud fa-lg text-primary"></i>
@@ -293,42 +362,48 @@
                     <i class="fas fa-code fa-lg text-primary"></i>
                     <h5>Clean Code</h5>
                     <p>SOLID & DRY</p>
-                    </div>
+                </div>
             </div>
             <div class="col-md-3">
                 <div class="standard-card">
                     <i class="fas fa-tasks fa-lg text-primary"></i>
                     <h5>DevOps</h5>
                     <p>CI/CD pipeline</p>
-                    </div>
+                </div>
             </div>
         </div>
-                        </div>
+    </div>
 </section>
 
 <!-- About section -->
 <section id="about" class="">
     <div class="container">
-        <div class="about-wrapper p-4" >
+        <div class="about-wrapper p-4">
             <!-- Row 1: Header + CTA -->
             <div class="row align-items-center mb-4 ">
                 <div class="col">
                     <h2 class="h2 fw-bold mb-0">About Me</h2>
-                        </div>
+                </div>
                 <div class="col-auto">
-                    <a href="{{ route('about') }}" class="btn btn-primary" style="background-color: white; color: black; border-radius: 16px; padding: 10px 20px;">
+                    <a href="{{ route('about') }}" class="btn btn-primary"
+                        style="background-color: white; color: black; border-radius: 16px; padding: 10px 20px;">
                         📖 Read My Full Story
                         <i class="fas fa-arrow-right ms-2"></i>
-                </a>
-            </div>
+                    </a>
+                </div>
             </div>
 
             <!-- Row 2: Content -->
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="lead mb-3">Cloud architect by day, bug hunter by night. I turn coffee ☕ into code and complex problems into elegant solutions. Think of me as your tech-savvy friend who's always up for a good coding adventure!</p>
-                    <p class=" " style="color: white;">From debugging sessions that feel like detective work to architecting systems that make businesses smile - I bring both technical expertise and a dash of joy to every project. Want to know what makes a cloud architect tick? Click that story button up there! 🚀</p>
-                    </div>
+                    <p class="lead mb-3">Cloud architect by day, bug hunter by night. I turn coffee ☕ into code and
+                        complex problems into elegant solutions. Think of me as your tech-savvy friend who's always up
+                        for a good coding adventure!</p>
+                    <p class=" " style="color: white;">From debugging sessions that feel like detective work to
+                        architecting systems that make businesses smile - I bring both technical expertise and a dash of
+                        joy to every project. Want to know what makes a cloud architect tick? Click that story button up
+                        there! 🚀</p>
+                </div>
             </div>
         </div>
     </div>
@@ -438,36 +513,92 @@
             </div>
         </div>
 
-       
+
     </div>
 </section>
 
 <!-- Projects Section -->
-<section id="projects" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="section-heading">Recent Projects</h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">E-Commerce Platform</h3>
-                        <p class="card-text">A scalable e-commerce solution built with React and Node.js.</p>
-                        <a href="#" class="btn btn-outline-primary btn-sm">View Details →</a>
-                    </div>
-                </div>
+<section id="projects" class="py-3 ">
+    <div class="container" style="background-color: #f8f9fa; border-radius: 16px; padding: 20px;">
+        <!-- Section Header -->
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6">
+                <h2 class="section-heading mb-2">Featured Projects</h2>
+                <p class="text-muted">Explore some of my recent work and technical implementations</p>
             </div>
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Cloud Infrastructure</h3>
-                        <p class="card-text">AWS-based infrastructure setup with automated deployment.</p>
-                        <a href="#" class="btn btn-outline-primary btn-sm">View Details →</a>
-                    </div>
-                </div>
+            <div class="col-lg-6 text-lg-end">
+                <a href="{{ route('projects-grid') }}" class="btn btn-dark rounded-pill">
+                    View All Projects <i class="fas fa-arrow-right ms-2"></i>
+                </a>
             </div>
         </div>
-        <div class="text-center mt-4">
-            <a href="#" class="btn btn-primary">View All Projects</a>
+
+        <!-- Projects Grid -->
+        <div class="row g-4">
+            @foreach ($projects->take(3) as $project)
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm project-card">
+                    <!-- Project Image -->
+                    <div class="position-relative">
+                        <img src="{{ asset('storage/' . $project->image) }}" class="card-img-top"
+                            alt="{{ $project->title }}"
+                            style="height: 200px; object-fit: contain; background-color: white;">
+                        @if($project->featured)
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-dark">Featured</span>
+                        </div>
+                        @endif
+                    </div>
+
+                    <!-- Project Info -->
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="h5 mb-3">{{ $project->title }}</h3>
+                        <p class="card-text text-muted flex-grow-1">{{ Str::limit($project->excerpt, 100) }}</p>
+
+                        @if($project->tech_stack)
+                        <div class="tech-stack mb-3">
+                            @foreach(array_slice(explode(',', $project->tech_stack), 0, 3) as $tech)
+                            <span class="badge bg-light text-dark me-1">{{ trim($tech) }}</span>
+                            @endforeach
+                            @if(count(explode(',', $project->tech_stack)) > 3)
+                            <span
+                                class="badge bg-light text-dark">+{{ count(explode(',', $project->tech_stack)) - 3 }}</span>
+                            @endif
+                        </div>
+                        @endif
+
+                        <div class="mt-auto">
+                            <a href="{{ route('project-detail', $project->slug) }}"
+                                class="btn btn-link text-dark p-0 text-decoration-none">
+                                View Project Details <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+        <!-- Call to Action -->
+
+    </div>
+</section>
+
+<!-- Project CTA Section -->
+<section id="testimonials" class="p-4">
+    <div class="container" style="background-color: black; border-radius: 16px; padding: 40px;">
+        <div class="row align-items-center">
+            <!-- Left Column: Text -->
+            <div class="col-lg-8">
+                <h3 class="h3 mb-2 text-white">Have a project in mind?</h3>
+                <p class="mb-0 text-white-50">Let's discuss how we can work together to create something amazing.</p>
+            </div>
+            <!-- Right Column: CTA Button -->
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="#contact" class="btn btn-light rounded-pill px-4 py-2">
+                    Start a Conversation <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
         </div>
     </div>
 </section>
@@ -514,8 +645,8 @@
                 <div class="testimonial-card h-100">
                     <div class="client-identity">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://ui-avatars.com/api/?name=Rahul+S&background=random" 
-                                 alt="Rahul S." class="client-image">
+                            <img src="https://ui-avatars.com/api/?name=Rahul+S&background=random" alt="Rahul S."
+                                class="client-image">
                             <div class="ms-3">
                                 <h5 class="client-name mb-1">Rahul S.</h5>
                                 <p class="client-position mb-1">CTO, FinTech Startup</p>
@@ -534,11 +665,11 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <blockquote class="testimonial-quote">
                         "Utsav built a secure backend system for our fintech app. On-time, on-budget, zero BS."
                     </blockquote>
-                    
+
                     <div class="tech-focus mt-3 mb-3">
                         <p class="text-muted mb-2">Tech Stack / Focus Areas:</p>
                         <div class="tech-tags">
@@ -547,7 +678,7 @@
                             <span>☁️ AWS</span>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-links">
                         <a href="/case-studies/fintech" class="text-decoration-underline me-3">
                             📄 View Full Case Study
@@ -564,8 +695,8 @@
                 <div class="testimonial-card h-100">
                     <div class="client-identity">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://ui-avatars.com/api/?name=James+T&background=random" 
-                                 alt="James T." class="client-image">
+                            <img src="https://ui-avatars.com/api/?name=James+T&background=random" alt="James T."
+                                class="client-image">
                             <div class="ms-3">
                                 <h5 class="client-name mb-1">James T.</h5>
                                 <p class="client-position mb-1">Head of Engineering</p>
@@ -584,11 +715,11 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <blockquote class="testimonial-quote">
                         "Top-notch cloud skills. Automated our infrastructure and reduced monthly spend by 25%."
                     </blockquote>
-                    
+
                     <div class="tech-focus mt-3 mb-3">
                         <p class="text-muted mb-2">Tech Stack / Focus Areas:</p>
                         <div class="tech-tags">
@@ -597,7 +728,7 @@
                             <span>🤖 Automation</span>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-links">
                         <a href="/case-studies/cloud" class="text-decoration-underline me-3">
                             📄 View Full Case Study
@@ -614,8 +745,8 @@
                 <div class="testimonial-card h-100">
                     <div class="client-identity">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://ui-avatars.com/api/?name=Sarah+M&background=random" 
-                                 alt="Sarah M." class="client-image">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+M&background=random" alt="Sarah M."
+                                class="client-image">
                             <div class="ms-3">
                                 <h5 class="client-name mb-1">Sarah M.</h5>
                                 <p class="client-position mb-1">Product Manager</p>
@@ -634,11 +765,11 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <blockquote class="testimonial-quote">
                         "Transformed our legacy app into a modern platform. Launched 2 months ahead of schedule."
                     </blockquote>
-                    
+
                     <div class="tech-focus mt-3 mb-3">
                         <p class="text-muted mb-2">Tech Stack / Focus Areas:</p>
                         <div class="tech-tags">
@@ -647,7 +778,7 @@
                             <span>⚛️ React</span>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-links">
                         <a href="/case-studies/migration" class="text-decoration-underline me-3">
                             📄 View Full Case Study
@@ -663,8 +794,8 @@
         <!-- Google Reviews Link -->
         <div class="text-center mt-5">
             <a href="https://g.page/your-business" class="google-reviews-link" target="_blank">
-                <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-                     alt="Google" height="20" class="me-2">
+                <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                    alt="Google" height="20" class="me-2">
                 <span>Read All Verified Google Reviews →</span>
             </a>
         </div>
@@ -672,3 +803,30 @@
 </section>
 
 @endsection
+
+<style>
+.project-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.tech-stack .badge {
+    font-size: 0.75rem;
+    font-weight: normal;
+    padding: 0.4rem 0.8rem;
+}
+
+.btn-link:hover {
+    text-decoration: underline !important;
+}
+
+@media (max-width: 991.98px) {
+    .text-lg-end {
+        text-align: left !important;
+        margin-top: 1rem;
+    }
+}
+</style>

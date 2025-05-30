@@ -51,12 +51,20 @@
                             </div>
                             
                             <!-- Action Button - Always at Bottom -->
-                            <div class="text-center mt-3">
+                            <div class="text-center mt-3 d-flex gap-2 justify-content-center">
+                                @if($post->link)
+                                <a href="{{ $post->link }}" 
+                                   class="btn btn-sm flex-grow-1" 
+                                   style="background-color: black; color: white; border-radius: 20px; padding: 0.5rem 1rem;"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt me-1"></i> Verify
+                                </a>
+                                @endif
                                 <a href="{{ route('certifiate-detail', $post->slug) }}" 
-                                   class="btn btn-sm" 
-                                   style="background-color: black; color: white; border-radius: 20px; padding: 0.5rem 1.5rem;"
-                                   target="_blank">
-                                    View Certificate →
+                                   class="btn btn-sm flex-grow-1" 
+                                   style="background-color: white; color: black; border: 1px solid black; border-radius: 20px; padding: 0.5rem 1rem;">
+                                    <i class="fas fa-info-circle me-1"></i> Details
                                 </a>
                             </div>
                         </div>
