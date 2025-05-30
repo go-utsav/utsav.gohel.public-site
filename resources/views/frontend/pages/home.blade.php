@@ -27,126 +27,67 @@
 <!-- Portfolio Case Studies -->
 <section id="portfolio" class="py-5">
     <div class="container">
-        <h2 class="section-heading mb-4">Client Success Stories</h2>
+        <!-- Section Header with View All -->
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6">
+                <h2 class="section-heading mb-0">Client Success Stories</h2>
+                <p class="text-muted mt-2 mb-0">Transforming ideas into impactful solutions</p>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a href="{{ route('case-study-grid') }}" class="btn btn-outline-primary rounded-pill">
+                    View All Case Studies <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Case Study Cards - Only show 2 -->
         <div class="row g-4">
-            <!-- E-Commerce Platform Case Study -->
+            @foreach ($caseStudies->take(2) as $caseStudy)
             <div class="col-md-6">
                 <div class="case-study-card">
                     <div class="case-study-image">
-                        <span class="client-location"><i class="fas fa-globe-asia"></i> IN</span>
-                        <img src="https://www.shutterstock.com/image-vector/online-store-ecommerce-mobile-app-260nw-1917442511.jpg"
-                            alt="E-Commerce Platform" class="img-fluid">
+                        @if($caseStudy->client_location)
+                        <span class="client-location">
+                            <i class="fas fa-globe"></i> {{ $caseStudy->client_location }}
+                        </span>
+                        @endif
+                        <img src="{{ asset('storage/' . $caseStudy->cover_image) }}" alt="{{ $caseStudy->title }}"
+                            class="img-fluid">
                     </div>
                     <div class="case-study-content">
-                        <h3>Premium Fashion E-Commerce Platform</h3>
+                        <h3>{{ $caseStudy->title }}</h3>
                         <div class="tech-stack">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>AWS</span>
-                            <span>MongoDB</span>
+                            @php
+                            $techStack = json_decode($caseStudy->tech_stack) ?? [];
+                            if (!is_array($techStack)) {
+                            $techStack = explode(',', $caseStudy->tech_stack);
+                            }
+                            @endphp
+                            @foreach($techStack as $tech)
+                            <span>{{ trim($tech) }}</span>
+                            @endforeach
                         </div>
                         <ul class="case-study-points">
-                            <li><strong>Challenge:</strong> Legacy system with poor performance and scalability issues
-                            </li>
-                            <li><strong>Solution:</strong> Built a modern e-commerce platform with real-time inventory
-                                and personalized recommendations</li>
-                            <li><strong>Role:</strong> Lead Full Stack Developer & Cloud Architect</li>
-                            <li><strong>Impact:</strong> 3x faster page loads, 40% increase in mobile conversions</li>
+                            <li><strong>Challenge:</strong> {{ Str::limit($caseStudy->challenge, 100) }}</li>
+                            <li><strong>Solution:</strong> {{ Str::limit($caseStudy->solution, 100) }}</li>
+                            <li><strong>Role:</strong> {{ $caseStudy->role }}</li>
+                            <li><strong>Impact:</strong> {{ Str::limit($caseStudy->impact, 100) }}</li>
                         </ul>
-                        <a href="/case-studies/fashion-ecommerce" class="btn btn-outline-primary">View Full Case Study
-                            →</a>
+                        <a href="{{ route('case-study-detail', $caseStudy->slug) }}"
+                            class="btn btn-outline-primary w-100">
+                            View Case Study <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+            @endforeach
+        </div>
 
-            <!-- Cloud Infrastructure Case Study -->
-            <div class="col-md-6">
-                <div class="case-study-card">
-                    <div class="case-study-image">
-                        <span class="client-location"><i class="fas fa-globe-europe"></i> UK</span>
-                        <img src="https://www.shutterstock.com/image-vector/cloud-computing-modern-flat-design-260nw-2227590831.jpg"
-                            alt="Cloud Infrastructure" class="img-fluid">
-                    </div>
-                    <div class="case-study-content">
-                        <h3>FinTech Cloud Migration</h3>
-                        <div class="tech-stack">
-                            <span>AWS</span>
-                            <span>Terraform</span>
-                            <span>Docker</span>
-                            <span>Kubernetes</span>
-                        </div>
-                        <ul class="case-study-points">
-                            <li><strong>Challenge:</strong> Complex on-premise infrastructure with high maintenance
-                                costs</li>
-                            <li><strong>Solution:</strong> Designed and implemented cloud-native architecture with
-                                automated scaling</li>
-                            <li><strong>Role:</strong> Lead Cloud Architect</li>
-                            <li><strong>Impact:</strong> 60% reduction in infrastructure costs, 99.99% uptime achieved
-                            </li>
-                        </ul>
-                        <a href="/case-studies/fintech-cloud" class="btn btn-outline-primary">View Full Case Study →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AI Dashboard Case Study -->
-            <div class="col-md-6">
-                <div class="case-study-card">
-                    <div class="case-study-image">
-                        <span class="client-location"><i class="fas fa-globe-americas"></i> US</span>
-                        <img src="https://www.shutterstock.com/image-vector/dashboard-infographic-template-charts-graphs-260nw-1065822260.jpg"
-                            alt="AI Analytics Dashboard" class="img-fluid">
-                    </div>
-                    <div class="case-study-content">
-                        <h3>AI-Powered Analytics Platform</h3>
-                        <div class="tech-stack">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>React</span>
-                            <span>GCP</span>
-                        </div>
-                        <ul class="case-study-points">
-                            <li><strong>Challenge:</strong> Manual data analysis causing delayed business decisions</li>
-                            <li><strong>Solution:</strong> Built real-time analytics dashboard with predictive insights
-                            </li>
-                            <li><strong>Role:</strong> Technical Lead & ML Engineer</li>
-                            <li><strong>Impact:</strong> 80% faster reporting, 45% improvement in prediction accuracy
-                            </li>
-                        </ul>
-                        <a href="/case-studies/ai-analytics" class="btn btn-outline-primary">View Full Case Study →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Healthcare App Case Study -->
-            <div class="col-md-6">
-                <div class="case-study-card">
-                    <div class="case-study-image">
-                        <span class="client-location"><i class="fas fa-globe-asia"></i> SG</span>
-                        <img src="https://www.shutterstock.com/image-vector/fitness-tracker-app-ui-ux-260nw-1388504049.jpg"
-                            alt="Healthcare App" class="img-fluid">
-                    </div>
-                    <div class="case-study-content">
-                        <h3>Healthcare Management Platform</h3>
-                        <div class="tech-stack">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                        <ul class="case-study-points">
-                            <li><strong>Challenge:</strong> Fragmented patient data and appointment management</li>
-                            <li><strong>Solution:</strong> Developed integrated healthcare platform with real-time
-                                updates</li>
-                            <li><strong>Role:</strong> Full Stack Developer</li>
-                            <li><strong>Impact:</strong> 50% reduction in appointment no-shows, 90% patient satisfaction
-                            </li>
-                        </ul>
-                        <a href="/case-studies/healthcare-platform" class="btn btn-outline-primary">View Full Case Study
-                            →</a>
-                    </div>
-                </div>
-            </div>
+        <!-- Mobile View All Button -->
+        <div class="d-block d-lg-none text-center mt-4">
+            <a href="{{ route('case-study-grid') }}" class="btn btn-primary rounded-pill">
+                View All Case Studies <i class="fas fa-arrow-right ms-2"></i>
+            </a>
         </div>
     </div>
 </section>
@@ -221,14 +162,13 @@
                                         @endif
                                     </div>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a href="{{ route('certifiate-detail', $certifiate->slug) }}" class="btn btn-sm"
-                                            style="background-color: white; color: black; border: 1px solid black; border-radius: 20px; font-size: 0.8rem;">
+                                        <a href="{{ route('certifiate-detail', $certifiate->slug) }}"
+                                            class="btn btn-sm cert-btn-outline">
                                             Details
                                         </a>
                                         @if($certifiate->link)
                                         <a href="{{ $certifiate->link }}" target="_blank" rel="noopener noreferrer"
-                                            class="btn btn-sm"
-                                            style="background-color: black; color: white; border-radius: 20px; font-size: 0.8rem;">
+                                            class="btn btn-sm cert-btn-solid">
                                             Verify
                                         </a>
                                         @endif
@@ -243,101 +183,90 @@
                 <!-- Slider Controls -->
                 <div class="d-flex justify-content-between align-items-center mt-3">
                     <div>
-                        <button class="btn btn-sm me-2" id="prevCert"
-                            style="background-color: white; color: black; border: 1px solid black; border-radius: 20px;">
+                        <button class="btn btn-sm me-2 cert-nav-btn" id="prevCert">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <button class="btn btn-sm" id="nextCert"
-                            style="background-color: white; color: black; border: 1px solid black; border-radius: 20px;">
+                        <button class="btn btn-sm cert-nav-btn" id="nextCert">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
-                    <a href="{{ route('certifiate-grid') }}" class="btn btn-sm"
-                        style="background-color: black; color: white; border-radius: 20px; padding: 0.5rem 1.5rem;">
+                    <a href="{{ route('certifiate-grid') }}" class="btn btn-sm cert-view-all">
                         View All Certifications →
                     </a>
                 </div>
             </div>
         </div>
 
-        <style>
-        .cert-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            height: 100%;
-            padding: 1rem;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .certification-slider {
-            position: relative;
-            overflow: hidden;
-        }
-
-        #certSlider {
-            transform: translateX(0);
-        }
-        </style>
-
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             const slider = document.getElementById('certSlider');
             const prevBtn = document.getElementById('prevCert');
             const nextBtn = document.getElementById('nextCert');
-            let currentPosition = 0;
-            const cardWidth = 25; // 25% as we're showing 4 cards
-            const totalCards = {
+            const slideWidth = 25; // Width of each slide (25% = 4 cards visible)
+            const totalSlides = {
                 {
                     count($certifiates)
                 }
-            };
-            const visibleCards = 4;
-            const maxPosition = Math.max(0, totalCards - visibleCards);
+            }; // Get total number of certificates
+            const visibleSlides = 4;
+            let currentSlide = 0;
+            const maxSlide = Math.max(0, totalSlides - visibleSlides);
 
             function updateSliderPosition() {
-                slider.style.transform = `translateX(-${currentPosition * cardWidth}%)`;
+                slider.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            }
+
+            function updateButtonStates() {
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide >= maxSlide;
             }
 
             prevBtn.addEventListener('click', () => {
-                if (currentPosition > 0) {
-                    currentPosition--;
+                if (currentSlide > 0) {
+                    currentSlide--;
                     updateSliderPosition();
+                    updateButtonStates();
                 }
-                updateButtonStates();
             });
 
             nextBtn.addEventListener('click', () => {
-                if (currentPosition < maxPosition) {
-                    currentPosition++;
+                if (currentSlide < maxSlide) {
+                    currentSlide++;
                     updateSliderPosition();
+                    updateButtonStates();
                 }
-                updateButtonStates();
             });
 
-            function updateButtonStates() {
-                prevBtn.disabled = currentPosition === 0;
-                nextBtn.disabled = currentPosition >= maxPosition;
-
-                // Update button styles based on state
-                [prevBtn, nextBtn].forEach(btn => {
-                    if (btn.disabled) {
-                        btn.style.opacity = '0.5';
-                        btn.style.cursor = 'not-allowed';
-                    } else {
-                        btn.style.opacity = '1';
-                        btn.style.cursor = 'pointer';
-                    }
-                });
-            }
-
-            // Initial button state
+            // Initialize button states
             updateButtonStates();
+
+            // Optional: Add touch support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            });
+
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50; // Minimum swipe distance
+                const swipeDistance = touchStartX - touchEndX;
+
+                if (Math.abs(swipeDistance) > swipeThreshold) {
+                    if (swipeDistance > 0 && currentSlide < maxSlide) {
+                        // Swipe left
+                        nextBtn.click();
+                    } else if (swipeDistance < 0 && currentSlide > 0) {
+                        // Swipe right
+                        prevBtn.click();
+                    }
+                }
+            }
         });
         </script>
 
@@ -613,7 +542,7 @@
         </div>
 
         <!-- Stats Bar -->
-        <div class="stats-bar mb-5">
+        <!-- <div class="stats-bar mb-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="d-flex flex-wrap justify-content-between align-items-center text-center text-md-start">
@@ -636,159 +565,25 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Testimonial Grid -->
         <div class="row g-4">
-            <!-- Testimonial 1 -->
+            @foreach($testimonials as $testimonial)
             <div class="col-md-4">
                 <div class="testimonial-card h-100">
-                    <div class="client-identity">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="https://ui-avatars.com/api/?name=Rahul+S&background=random" alt="Rahul S."
-                                class="client-image">
-                            <div class="ms-3">
-                                <h5 class="client-name mb-1">Rahul S.</h5>
-                                <p class="client-position mb-1">CTO, FinTech Startup</p>
-                                <div class="client-location">
-                                    <img src="https://flagcdn.com/16x12/in.png" alt="India" class="flag-icon">
-                                    <span>Mumbai, India</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="client-links mb-3">
-                            <a href="https://linkedin.com/in/rahul" class="btn btn-sm btn-outline-secondary me-2">
-                                <i class="fab fa-linkedin"></i> LinkedIn
-                            </a>
-                            <a href="https://company.com" class="btn btn-sm btn-outline-secondary">
-                                <i class="fas fa-building"></i> Company
-                            </a>
-                        </div>
+                    <div class="client-identity mb-4">
+                        <h5 class="client-name mb-1">{{ $testimonial->client_name }}</h5>
+                        <p class="client-position mb-1">{{ $testimonial->position }}</p>
+                        <small class="text-muted">{{ $testimonial->location }}</small>
                     </div>
 
-                    <blockquote class="testimonial-quote">
-                        "Utsav built a secure backend system for our fintech app. On-time, on-budget, zero BS."
+                    <blockquote class="testimonial-quote mb-0">
+                        {{ $testimonial->testimonial }}
                     </blockquote>
-
-                    <div class="tech-focus mt-3 mb-3">
-                        <p class="text-muted mb-2">Tech Stack / Focus Areas:</p>
-                        <div class="tech-tags">
-                            <span>🛡️ Fintech</span>
-                            <span>🔒 Security</span>
-                            <span>☁️ AWS</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-links">
-                        <a href="/case-studies/fintech" class="text-decoration-underline me-3">
-                            📄 View Full Case Study
-                        </a>
-                        <a href="#" class="text-decoration-underline">
-                            🔗 LinkedIn Testimonial
-                        </a>
-                    </div>
                 </div>
             </div>
-
-            <!-- Testimonial 2 -->
-            <div class="col-md-4">
-                <div class="testimonial-card h-100">
-                    <div class="client-identity">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="https://ui-avatars.com/api/?name=James+T&background=random" alt="James T."
-                                class="client-image">
-                            <div class="ms-3">
-                                <h5 class="client-name mb-1">James T.</h5>
-                                <p class="client-position mb-1">Head of Engineering</p>
-                                <div class="client-location">
-                                    <img src="https://flagcdn.com/16x12/gb.png" alt="UK" class="flag-icon">
-                                    <span>London, UK</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="client-links mb-3">
-                            <a href="https://linkedin.com/in/james" class="btn btn-sm btn-outline-secondary me-2">
-                                <i class="fab fa-linkedin"></i> LinkedIn
-                            </a>
-                            <a href="https://company.com" class="btn btn-sm btn-outline-secondary">
-                                <i class="fas fa-building"></i> Company
-                            </a>
-                        </div>
-                    </div>
-
-                    <blockquote class="testimonial-quote">
-                        "Top-notch cloud skills. Automated our infrastructure and reduced monthly spend by 25%."
-                    </blockquote>
-
-                    <div class="tech-focus mt-3 mb-3">
-                        <p class="text-muted mb-2">Tech Stack / Focus Areas:</p>
-                        <div class="tech-tags">
-                            <span>🚀 DevOps</span>
-                            <span>💰 Cost Optimization</span>
-                            <span>🤖 Automation</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-links">
-                        <a href="/case-studies/cloud" class="text-decoration-underline me-3">
-                            📄 View Full Case Study
-                        </a>
-                        <a href="#" class="text-decoration-underline">
-                            🔗 LinkedIn Testimonial
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div class="col-md-4">
-                <div class="testimonial-card h-100">
-                    <div class="client-identity">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="https://ui-avatars.com/api/?name=Sarah+M&background=random" alt="Sarah M."
-                                class="client-image">
-                            <div class="ms-3">
-                                <h5 class="client-name mb-1">Sarah M.</h5>
-                                <p class="client-position mb-1">Product Manager</p>
-                                <div class="client-location">
-                                    <img src="https://flagcdn.com/16x12/sg.png" alt="Singapore" class="flag-icon">
-                                    <span>Singapore</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="client-links mb-3">
-                            <a href="https://linkedin.com/in/sarah" class="btn btn-sm btn-outline-secondary me-2">
-                                <i class="fab fa-linkedin"></i> LinkedIn
-                            </a>
-                            <a href="https://company.com" class="btn btn-sm btn-outline-secondary">
-                                <i class="fas fa-building"></i> Company
-                            </a>
-                        </div>
-                    </div>
-
-                    <blockquote class="testimonial-quote">
-                        "Transformed our legacy app into a modern platform. Launched 2 months ahead of schedule."
-                    </blockquote>
-
-                    <div class="tech-focus mt-3 mb-3">
-                        <p class="text-muted mb-2">Tech Stack / Focus Areas:</p>
-                        <div class="tech-tags">
-                            <span>💻 Full Stack</span>
-                            <span>🔄 Migration</span>
-                            <span>⚛️ React</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-links">
-                        <a href="/case-studies/migration" class="text-decoration-underline me-3">
-                            📄 View Full Case Study
-                        </a>
-                        <a href="#" class="text-decoration-underline">
-                            🔗 LinkedIn Testimonial
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <!-- Google Reviews Link -->
@@ -798,6 +593,42 @@
                     alt="Google" height="20" class="me-2">
                 <span>Read All Verified Google Reviews →</span>
             </a>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Links Section -->
+<section class="quick-links-section py-4">
+    <div class="container">
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6">
+                <h2 class="section-heading mb-0">Production Links</h2>
+                <p class="text-muted mt-2">Explore my live projects and implementations</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            @foreach($quickLinks as $link)
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <a href="{{ $link->url }}" target="_blank" class="quick-link-card">
+                    <div class="quick-link-image">
+                        @if($link->image)
+                            <img src="{{ asset('storage/' . $link->image) }}" alt="{{ $link->name }}">
+                        @else
+                            <div class="placeholder-image">
+                                <i class="fas fa-link"></i>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="quick-link-content">
+                        <h3>{{ $link->name }}</h3>
+                        <span class="explore-link">
+                            Explore <i class="fas fa-arrow-right ms-1"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -827,6 +658,142 @@
     .text-lg-end {
         text-align: left !important;
         margin-top: 1rem;
+    }
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 145, 77, 0.1);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 145, 77, 0.15);
+    border-color: var(--brand-end);
+}
+
+.client-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.testimonial-quote {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    font-style: italic;
+}
+
+.quick-links-section {
+    background: linear-gradient(to right, rgba(255, 222, 89, 0.05), rgba(255, 145, 77, 0.05));
+    border-radius: 16px;
+    
+}
+
+.quick-link-card {
+    display: block;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    height: 100%;
+    border: 1px solid rgba(255, 145, 77, 0.1);
+}
+
+.quick-link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 145, 77, 0.15);
+    border-color: var(--brand-end);
+}
+
+.quick-link-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    background: #f8f9fa;
+    overflow: hidden;
+}
+
+.quick-link-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.quick-link-card:hover .quick-link-image img {
+    transform: scale(1.05);
+}
+
+.placeholder-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, rgba(255, 222, 89, 0.1), rgba(255, 145, 77, 0.1));
+}
+
+.placeholder-image i {
+    font-size: 1.5rem;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quick-link-content {
+    padding: 1rem;
+    text-align: center;
+}
+
+.quick-link-content h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.explore-link {
+    font-size: 0.8rem;
+    color: var(--brand-end);
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.quick-link-card:hover .explore-link {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .quick-link-content {
+        padding: 0.75rem;
+    }
+    
+    .quick-link-content h3 {
+        font-size: 0.8rem;
+    }
+    
+    .explore-link {
+        font-size: 0.75rem;
     }
 }
 </style>

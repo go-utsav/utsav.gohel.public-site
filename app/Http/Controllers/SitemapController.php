@@ -2,16 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Response;
+use App\Models\Posts;
+use Carbon\Carbon;
 
 class SitemapController extends Controller
 {
     public function index()
     {
-        $content = view('sitemap')->render();
-        
-        return response($content)
-            ->header('Content-Type', 'text/xml')
-            ->header('Cache-Control', 'public, max-age=43200'); // Cache for 12 hours
+        // Get all published projects
+        $projects = Posts::where('status', 'PUBLISHED')
+            ->where('category_id', 3)
+            ->get();
+
+        // Get all published certificates
+        $certificates = Posts::where('status', 'PUBLISHED')
+            ->where('category_id', 5)
+            ->get();
+
+        // Set content type
+        return response()->view('sitemap', [
+            'projects' => $projects,
+            'certificates' => $certificates,
+            'now' => Carbon::now()->tz('UTC')->toAtomString()
+        ])->header('Content-Type', 'text/xml');
     }
 } 

@@ -10,9 +10,15 @@
                   <li class="nav-item">
                       <a class="nav-link" href="{{ route('about') }}">About</a>
                   </li>
-                 
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('service-grid') }}">Services</a>
+                  </li>
+                  
                   <li class="nav-item">
                       <a class="nav-link" href="{{ route('projects-grid') }}">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('case-study-grid') }}">Case Studies</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#contact">Contact</a>
